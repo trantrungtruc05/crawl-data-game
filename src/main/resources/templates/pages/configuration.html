@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorator="layout">
+<head>
+    <title>Configuration</title>
+</head>
+<body>
+<section layout:fragment="content">
+    <div class="row">
+        <div class="col-md-12 d-flex align-items-stretch grid-margin">
+            <div class="row flex-grow">
+                <div class="col-12 stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Configuration</h4>
+                            <form class="forms-sample" action="#" th:action="@{/pages/update/config}" th:object="${configurationDTO}" method="post">
+                                <div class="form-group row">
+                                    <label for="buff_cookie" class="col-sm-2 col-form-label">Buff Cookie</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="buff_cookie" th:field="*{buffCooikie}" name="buff_cookie" placeholder="Enter Buff cookie">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="empire_crawl_cookie" class="col-sm-2 col-form-label">Empire Cookie Crawl</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="empire_crawl_cookie" th:field="*{empireCrawlCookie}" name="empire_crawl_cookie" placeholder="Enter Empire cookie crawl">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="etop_crawl_cookie" class="col-sm-2 col-form-label">Etop Cookie Crawl</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="etop_crawl_cookie" th:field="*{etopCrawlCookie}" name="etop_crawl_cookie" placeholder ="Enter Etop cookie crawl">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="empire_withdraw_cookie" class="col-sm-2 col-form-label">Empire Cookie Withdraw</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="empire_withdraw_cookie" th:field="*{empireWithdrawCookie}" name="empire_withdraw_cookie" placeholder="Enter Empire cookie withdraw">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="etop_withdraw_cookie" class="col-sm-2 col-form-label">Etop Cookie Withdraw Csgo</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="etop_withdraw_cookie" th:field="*{etopWithdrawCookie}" name="etop_withdraw_cookie" placeholder="Enter Etop cookie withdraw">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="etop_withdraw_cookie" class="col-sm-2 col-form-label">Etop Cookie Withdraw Dota</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="etop_withdraw_dota_cookie" th:field="*{etopWithdrawDotaCookie}" name="etop_withdraw_dota_cookie" placeholder="Enter Etop cookie withdraw Dota">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="currency_etop" class="col-sm-2 col-form-label">Currency Etop</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" id="currency_etop" th:field="*{etopCurrency}" placeholder="Enter currency Etop">
+                                    </div>
+                                    <label for="currency_yuan" class="col-sm-2 col-form-label">Currency Yuan</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" id="currency_yuan" th:field="*{yuanCurrency}" placeholder="Enter currency Yuan">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="empire_pricing_custom" class="col-sm-2 col-form-label">Empire Pricing Adjust (%)</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" id="empire_pricing_custom" th:field="*{empirePricingCustom}" placeholder="Enter Empire Pricing Adjust">
+                                    </div>
+                                    <label for="empire_pricing" class="col-sm-2 col-form-label">Empire Pricing</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" id="empire_pricing" th:field="*{empirePricing}" placeholder="Enter currency Yuan">
+                                    </div>
+                                </div>
+                                <br />
+                                <button type="submit" class="btn btn-success mr-2">Update</button>
+                                <a class="btn btn-info mr-2" onclick="crawlBuffManual()" role="button">Run Buff</a>
+                                <a class="btn btn-info mr-2" onclick="crawlEtopManual()" role="button">Run Etop</a>
+                                <a class="btn btn-info mr-2" onclick="crawlEtopOrderManual()" role="button">Run Etop Order</a>
+                                <a class="btn btn-primary mr-2" th:href="@{'/pages/run/manual/withdraw_etop'}" role="button">Withdraw Etop</a>
+                                <a class="btn btn-primary mr-2" href="http://35.213.181.248:8090/run/manual/withdraw_empire" role="button">Withdraw Empire</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

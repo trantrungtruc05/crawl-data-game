@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorator="layout">
+<head>
+    <title>Thông tin dữ liệu</title>
+</head>
+<body>
+<section layout:fragment="content">
+    <div class="row">
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+            <div class="card card-statistics">
+                <div class="card-body">
+                    <div class="clearfix">
+                        <div class="float-left">
+                            <a href="/api/download"><i class="fa fa-download"></i></a>
+                        </div>
+                        <div class="float-right">
+                            <div class="fluid-container">
+                                <h3 class="font-weight-medium text-right mb-0">Tải file Excel</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-muted mt-3 mb-0">
+                        <i class="mdi mdi-alert-octagon mr-1" aria-hidden="true"></i> Download excel file
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+            <div class="card card-statistics">
+                <div class="card-body">
+                    <div class="clearfix">
+                        <div class="float-left">
+                            <i class="mdi mdi-receipt text-warning icon-lg"></i>
+                        </div>
+                        <div class="float-right">
+                            <p class="mb-0 text-right">Buff</p>
+                            <div class="fluid-container">
+                                <h3 class="font-weight-medium text-right mb-0" th:text="${info.buffCrawlStatus}"></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-muted mt-3 mb-0">
+                        <i class="mdi mdi-reload mr-1" aria-hidden="true"></i> Tình trạng crawl buff
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+            <div class="card card-statistics">
+                <div class="card-body">
+                    <div class="clearfix">
+                        <div class="float-left">
+                            <i class="mdi mdi-receipt text-warning icon-lg"></i>
+                        </div>
+                        <div class="float-right">
+                            <p class="mb-0 text-right">Empire Crawl</p>
+                            <div class="fluid-container">
+                                <h3 class="font-weight-medium text-right mb-0" th:text="${info.empireCrawlStatus}"></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-muted mt-3 mb-0">
+                        <i class="mdi mdi-reload mr-1" aria-hidden="true"></i> Tình trạng crawl empire
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+            <div class="card card-statistics">
+                <div class="card-body">
+                    <div class="clearfix">
+                        <div class="float-left">
+                            <i class="mdi mdi-receipt text-warning icon-lg"></i>
+                        </div>
+                        <div class="float-right">
+                            <p class="mb-0 text-right">Etop Crawl</p>
+                            <div class="fluid-container">
+                                <h3 class="font-weight-medium text-right mb-0" th:text="${info.etopCrawlStatus}"></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-muted mt-3 mb-0">
+                        <i class="mdi mdi-reload mr-1" aria-hidden="true"></i> Tình trạng crawl etop
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+            <div class="card card-statistics">
+                <div class="card-body">
+                    <div class="clearfix">
+                        <div class="float-left">
+                            <i class="mdi mdi-receipt text-warning icon-lg"></i>
+                        </div>
+                        <div class="float-right">
+                            <p class="mb-0 text-right">Etop Withdraw</p>
+                            <div class="fluid-container">
+                                <h3 class="font-weight-medium text-right mb-0" th:text="${info.etopWithdrawStatus}"></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-muted mt-3 mb-0">
+                        <i class="mdi mdi-reload mr-1" aria-hidden="true"></i> Tình trạng withdraw etop
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+            <div class="card card-statistics">
+                <div class="card-body">
+                    <div class="clearfix">
+                        <div class="float-left">
+                            <i class="mdi mdi-receipt text-warning icon-lg"></i>
+                        </div>
+                        <div class="float-right">
+                            <p class="mb-0 text-right">Empire Withdraw</p>
+                            <div class="fluid-container">
+                                <h3 class="font-weight-medium text-right mb-0" th:text="${info.empireWithdrawStatus}"></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-muted mt-3 mb-0">
+                        <i class="mdi mdi-reload mr-1" aria-hidden="true"></i> Tình trạng withdraw empire
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Configuration</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h2>Configuration</h2>
+    <form action="#" th:action="@{/update/config}" th:object="${configurationDTO}" method="post">
+        <div class="form-group">
+            <label for="buff_cookie">Buff Cookie:</label>
+            <input type="text" class="form-control" id="buff_cookie" th:field="*{buffCooikie}"
+                   placeholder="Enter Buff Cookie" name="buff_cookie">
+        </div>
+        <div class="form-group">
+            <label for="empire_crawl_cookie">Empire Cookie Crawl:</label>
+            <input type="text" class="form-control" id="empire_crawl_cookie" th:field="*{empireCrawlCookie}"
+                   placeholder="Enter Empire Crawl Cookie" name="empire_crawl_cookie">
+        </div>
+        <div class="form-group">
+            <label for="etop_crawl_cookie">Etop Cookie Crawl:</label>
+            <input type="text" class="form-control" id="etop_crawl_cookie" th:field="*{etopCrawlCookie}"
+                   placeholder="Enter Etop Crawl Cookie" name="etop_crawl_cookie">
+        </div>
+        <div class="form-group">
+            <label for="empire_withdraw_cookie">Empire Withdraw Cookie:</label>
+            <input type="text" class="form-control" id="empire_withdraw_cookie" th:field="*{empireWithdrawCookie}"
+                   placeholder="Enter Empire Withdraw Cookie" name="empire_withdraw_cookie">
+        </div>
+
+        <div class="form-group">
+            <label for="etop_withdraw_cookie">Etop Withdraw Cookie:</label>
+            <input type="text" class="form-control" id="etop_withdraw_cookie" th:field="*{etopWithdrawCookie}"
+                   placeholder="Enter Etop Cookie" name="etop_withdraw_cookie">
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="currency_etop">Currency Etop</label>
+                <input type="text" class="form-control" id="currency_etop" th:field="*{etopCurrency}"
+                       placeholder="Currency Etop">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="currency_yuan">Currency Yuan</label>
+                <input type="text" class="form-control" id="currency_yuan" th:field="*{yuanCurrency}"
+                       placeholder="Currency Yuan">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="empire_pricing_custom">Empire Pricing Adjust (%)</label>
+                <input type="text" class="form-control" id="empire_pricing_custom" th:field="*{empirePricingCustom}"
+                       placeholder="Empire Pricing Adjust">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="empire_pricing">Empire Pricing</label>
+                <input type="text" class="form-control" id="empire_pricing" th:field="*{empirePricing}"
+                       placeholder="Empire Pricing">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a class="btn btn-primary" th:href="@{'/run/manual/buff'}" role="button">Run Buff</a>
+        <a class="btn btn-primary" th:href="@{'/run/manual/etop'}" role="button">Run Etop</a>
+        <a class="btn btn-primary" th:href="@{'/run/manual/withdraw_etop'}" role="button">Withdraw Etop</a>
+        <a class="btn btn-primary" href="http://35.213.181.248:8090/run/manual/withdraw_empire" role="button">Withdraw Empire</a>
+
+    </form>
+
+</div>
+
+</body>
+</html>

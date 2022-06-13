@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorator="layout">
+<head>
+    <title>Danh sách Items Csgo</title>
+</head>
+<body>
+<section layout:fragment="content">
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <form action="#" th:action="@{/pages/addQueueEmpireWithdraw}" th:object="${itemDTO}" method="post">
+                    <div class="card-body">
+                        <h4 class="card-title">Danh sách Item Csgo</h4>
+                        <div class="form-group row">
+                            <div class="col-sm-2">
+                                <button type="submit" class="btn btn-primary">Rút</button>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th scope="col"><input type="checkbox" id="clickAll" onchange="checkAllBox()"></th>
+                                    <th scope="col">Tên item</th>
+                                    <th scope="col">Giá Buff thấp nhất</th>
+                                    <th scope="col">Giá Etop thấp nhất</th>
+                                    <th scope="col">Giá Empire Buff</th>
+                                    <th scope="col">Giá Empire Etop</th>
+                                    <th scope="col">Giá Empire tùy chỉnh</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="result : ${excelFileEntityList}">
+                                    <td> <input type="checkbox" name="items" th:value="${result.tempEmpireWithdraw}"></td>
+                                    <td th:text="${result.name}">Name</td>
+                                    <td th:text="${result.buffOriginPriceVnd}"></td>
+                                    <td th:text="${result.etopOriginPrice}"></td>
+                                    <td th:text="${result.empireOriginPrice}"></td>
+                                    <td th:text="${result.empireOriginPriceEtop}"></td>
+                                    <td th:text="${result.empirePriceCustom}"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

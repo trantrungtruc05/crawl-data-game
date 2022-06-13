@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <title>List item withdraw empire</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} " />
+</head>
+
+<body>
+
+<br />
+
+
+<div class="table-responsive-sm">
+    <form action="#" th:action="@{/addQueueEmpireWithdraw}" th:object="${itemDTO}" method="post">
+        <button type="submit" class="btn btn-primary">Rút</button>
+        <button type="button" class="btn btn-primary" onclick="checkAll()">Chọn tất cả</button>
+        <button type="button" class="btn btn-primary" onclick="uncheckAll()">Bỏ chọn</button>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Tên item</th>
+                <th scope="col">Giá Buff thấp nhất</th>
+                <th scope="col">Giá Empire Original</th>
+                <th scope="col">Giá Empire tùy chỉnh</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="result : ${excelFileEntityList}">
+                <td> <input type="checkbox" name="items" th:value="${result.tempEmpireWithdraw}"></td>
+                <td th:text="${result.name}">Name</td>
+                <td th:text="${result.buffOriginPriceVnd}"></td>
+                <td th:text="${result.empireOriginPrice}"></td>
+                <td th:text="${result.empirePriceCustom}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </form>>
+</div>
+
+<script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
+
+<script type="text/javascript">
+    // Select all check boxes : Setting the checked property to true in checkAll() function
+    function checkAll(){
+        var items = document.getElementsByName('items');
+        for (var i = 0; i < items.length; i++) {
+            if (items[i].type == 'checkbox')
+                items[i].checked = true;
+        }
+    }
+    // Clear all check boxes : Setting the checked property to false in uncheckAll() function
+    function uncheckAll(){
+        var items = document.getElementsByName('items');
+        for (var i = 0; i < items.length; i++) {
+            if (items[i].type == 'checkbox')
+                items[i].checked = false;
+        }
+    }
+</script>
+
+
+</body>
+
+</html>

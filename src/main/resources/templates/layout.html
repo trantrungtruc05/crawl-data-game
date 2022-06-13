@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Star Admin</title>
+    <link rel="stylesheet" th:href="@{/vendors/iconfonts/mdi/css/materialdesignicons.min.css}">
+    <link rel="stylesheet" th:href="@{/vendors/css/vendor.bundle.base.css}">
+    <link rel="stylesheet" th:href="@{/vendors/css/vendor.bundle.addons.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="shortcut icon" th:href="@{/images/favicon.png}" />
+</head>
+
+<body>
+<div class="container-scroller">
+
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
+            <a class="navbar-brand brand-logo" th:href="@{'/pages/info'}">
+                <img th:src="@{/images/logo.svg}" alt="logo" />
+            </a>
+            <a class="navbar-brand brand-logo-mini" th:href="@{'/pages/info'}">
+                <img th:src="@{/images/logo-mini.svg}" alt="logo" />
+            </a>
+        </div>
+        <div class="navbar-menu-wrapper d-flex align-items-center">
+            <button class="navbar-toggler navbar-toggler d-none d-lg-block navbar-dark align-self-center mr-3" type="button" data-toggle="minimize">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <ul class="navbar-nav navbar-nav-right">
+                <li class="nav-item dropdown d-none d-xl-inline-block">
+                    <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+                        <span class="profile-text">Hello, Trung</span>
+                        <img class="img-xs rounded-circle" th:src="@{/images/faces/trung.jpeg}" alt="Profile image">
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+                        <a class="dropdown-item mt-2">
+                            Manage Accounts
+                        </a>
+                        <a class="dropdown-item">
+                            Change Password
+                        </a>
+                        <a class="dropdown-item">
+                            Sign Out
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+                <span class="icon-menu"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{'/pages/info'}">
+                        <i class="menu-icon fas fa-desktop"></i>
+                        <span class="menu-title">Thông tin</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#items_list" aria-expanded="false" aria-controls="items_list">
+                        <i class="menu-icon fas fa-list"></i>
+                        <span class="menu-title">Danh sách items</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="items_list">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{'/pages/csgo'}">Cso</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{'/pages/dota'}">Dota 2</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#ls_withdraw" aria-expanded="false" aria-controls="ls_withdraw">
+                        <i class="menu-icon fas fa-list"></i>
+                        <span class="menu-title">Danh sách chọn rút Empire</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="ls_withdraw">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{'/pages/withdraw/empire_both'}">Etop vs Buff</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{'/pages/withdraw/empire_etop'}">Etop</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{'/pages/withdraw/empire_buff'}">Buff</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#ls_waiting" aria-expanded="false" aria-controls="ls_waiting">
+                        <i class="menu-icon fas fa-list"></i>
+                        <span class="menu-title">Danh sách đang chờ rút</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="ls_waiting">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{'/pages/items/empire-waiting'}">Empire</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{'/pages/items/etop-waiting'}">Etop</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#ls_success" aria-expanded="false" aria-controls="ls_success">
+                        <i class="menu-icon fas fa-list"></i>
+                        <span class="menu-title">Danh sách đã rút</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="ls_success">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{'/pages/items/empire-success'}">Empire</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{'/pages/items/etop-success'}">Etop</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{'/pages/configuration'}">
+                        <i class="menu-icon  fas fa-tools"></i>
+                        <span class="menu-title">Cấu hình</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- partial -->
+        <div class="main-panel">
+            <div class="content-wrapper" layout:fragment="content">
+                Content is Here!
+            </div>
+            <!-- content-wrapper ends -->
+
+            <!-- partial:partials/_footer.html -->
+            <footer class="footer">
+                <div class="container-fluid clearfix">
+            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">
+              Crawl Data Game</span>
+              <i class="mdi mdi-heart text-danger"></i>
+            </span>
+                </div>
+            </footer>
+            <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+
+    </div>
+
+    <!-- page-body-wrapper ends -->
+</div>
+<!-- container-scroller -->
+
+<!-- plugins:js -->
+<script th:src="@{/vendors/js/vendor.bundle.base.js}"></script>
+<script th:src="@{/vendors/js/vendor.bundle.addons.js}"></script>
+<script th:src="@{/js/off-canvas.js}"></script>
+<script th:src="@{/js/misc.js}"></script>
+<script th:src="@{/js/dashboard.js}"></script>
+<script th:src="@{/js/a076d05399.js}"></script>
+<script type="text/javascript">
+
+    $(document).ready(function() {
+
+        funApplicationDisabled();
+
+        funContactDisabled();
+
+        funProductDisabled();
+
+    });
+
+    function funApplicationDisabled() {
+        $('#app-input-service-id').prop('readOnly', true);
+        $('#app-input-name').prop('disabled', true);
+        $('#app-input-icon').prop('disabled', true);
+        $('#app-input-meta-desc').prop('disabled', true);
+        $('#app-input-meta-key').prop('disabled', true);
+        $('#app-input-meta-google-site').prop('disabled', true);
+        $('#app-btn-cancel').prop('disabled', true);
+        $('#app-btn-save').prop('disabled', true);
+        $('#app-btn-edit').prop('disabled', false);
+    }
+
+    function funContactDisabled() {
+        $('#contact-input-service-id').prop('readOnly', true);
+        $('#contact-name').prop('disabled', true);
+        $('#contact-phone').prop('disabled', true);
+        $('#contact-sms').prop('disabled', true);
+        $('#contact-hiMessage').prop('disabled', true);
+        $('#contact-address').prop('disabled', true);
+        $('#contact-email').prop('disabled', true);
+        $('#contact-btn-cancel').prop('disabled', true);
+        $('#contact-btn-save').prop('disabled', true);
+        $('#contact-btn-edit').prop('disabled', false);
+    }
+
+    function funProductDisabled() {
+        $('#product-input-uuid').prop('readOnly', true);
+        $('#product-input-name').prop('disabled', true);
+        $('#product-input-img-src').prop('disabled', true);
+        $('#product-input-img-alt').prop('disabled', true);
+        $('#product-input-href').prop('disabled', true);
+        $('#product-input-price').prop('disabled', true);
+        $('#product-input-brochure').prop('disabled', true);
+        $('#product-btn-cancel').prop('disabled', true);
+        $('#product-btn-save').prop('disabled', true);
+        $('#product-btn-edit').prop('disabled', false);
+    }
+
+    function checkAllBox(){
+        var items = document.getElementsByName('items');
+        var $check = $("#clickAll")
+        if ($check.prop('checked')) {
+            for (var i = 0; i < items.length; i++) {
+                if (items[i].type == 'checkbox')
+                    items[i].checked = true;
+            }
+        }else {
+            for (var i = 0; i < items.length; i++) {
+                if (items[i].type == 'checkbox')
+                    items[i].checked = false;
+            }
+        }
+    }
+
+
+    function crawlEtopManual() {
+        alert("Bắt đầu Crawl Etop! . Vui lòng đợi trong giây lát cho đến khi gửi mail về");
+        $.ajax({
+            type: "GET",
+            url: "http://35.213.181.248:3002/crawl_etop_page_all",
+            cache: false,
+            success: function (html) {
+                alert("Crawl Etop Thành công! . Vui lòng đợi trong giây lát cho đến khi gửi mail về");
+            },
+            error: function (html) {
+                alert("Crawl Etop Không Thành công!");
+            }
+
+        });
+    }
+
+    function crawlEtopOrderManual() {
+        alert("Bắt đầu Crawl Etop Order! . Vui lòng đợi trong giây lát cho đến khi gửi mail về");
+        $.ajax({
+            type: "GET",
+            url: "http://35.213.181.248:3002/crawl_etop_order_all",
+            cache: false,
+            success: function (html) {
+                alert("Crawl Etop Order Thành công! . Vui lòng đợi trong giây lát cho đến khi gửi mail về");
+            },
+            error: function (html) {
+                alert("Crawl Etop Order Không Thành công!");
+            }
+
+        });
+    }
+
+
+    function crawlBuffManual() {
+        alert("Bắt đầu Crawl Buff! . Vui lòng đợi trong giây lát cho đến khi gửi mail về");
+        $.ajax({
+            type: "GET",
+            url: "http://35.213.181.248:3002/crawl_buff_all",
+            cache: false,
+            success: function (html) {
+                alert("Crawl Buff Thành công! . Vui lòng đợi trong giây lát cho đến khi gửi mail về");
+            },
+            error: function (html) {
+                alert("Crawl Buff Không Thành công!");
+            }
+
+        });
+    }
+</script>
+
+
+</body>
+</html>

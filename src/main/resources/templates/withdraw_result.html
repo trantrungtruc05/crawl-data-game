@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Contact List - Spring Boot Web Application Example</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} " />
+</head>
+
+<body>
+
+<br />
+<br />
+<br />
+<h2 th:align="center">Danh sách item đang chờ rút</h2>
+<br />
+
+<a class="btn btn-danger" th:href="@{'/delete/all'}" role="button">Xóa tất cả</a>
+<br />
+<br />
+
+<div class="table-responsive-sm">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th scope="col">Tên item</th>
+                <th scope="col">Giá web etop</th>
+                <th scope="col">Giá etop VND</th>
+                <th scope="col">Trạng thái</th>
+                <th scope="col">Ngày rút</th>
+                <th scope="col"></th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="result : ${queueEtopItemWithdrawList}">
+
+                <td th:text="${result.name}">Name</td>
+                <td th:text="${result.originalPrice}"></td>
+                <td th:text="${result.priceByVnd}"></td>
+                <td th:text="${result.status}"></td>
+                <td th:text="${result.createAt}"></td>
+                <td><a th:href="@{'/delete/' + ${result.name}}">Xóa</a></td>
+            </tr>
+            </tbody>
+        </table>
+</div>
+
+<script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
+</body>
+
+</html>
